@@ -1,0 +1,55 @@
+@font-face {
+    font-family: "Roboto-Light";
+    src: url('../fonts/Roboto-Light.eot');
+    src: url('../fonts/Roboto-Light.woff') format("woff");
+    src: url('../fonts/Roboto-Light.ttf') format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "ArchivoBlack-Regular";
+    src: url('../fonts/ArchivoBlack-Regular.ttf') format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.header {
+    padding-top: 53px;
+    padding-bottom: 200px;
+    font-family: Roboto-Light, sans-serif;
+}
+
+.cart {
+    padding: 44px 96px 59px 52px;
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: -3px -3px 30px rgba(0,0,0,0.1), -60px 90px 0 60px  rgba(255,221,35,1);
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 30pt;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 24pt;
+    margin: 0 0;
+    font-family: ArchivoBlack-Regular, sans-serif;
+}
+
+span {
+    color: rgba(255,221,35,1);
+}
+
+.under-logo {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 16pt;
+    line-height: 40px;
+}

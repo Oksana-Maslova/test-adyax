@@ -1,0 +1,8 @@
+.footer {
+    background: url("../images/Map.png") center no-repeat #000;
+    color: #fff;
+    padding-top: 222px;
+    padding-bottom: 261px;
+    font-family: Roboto-Light, sans-serif;
+    font-size: 20pt;
+}

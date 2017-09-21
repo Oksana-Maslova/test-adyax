@@ -1,0 +1,90 @@
+.product-block {
+    padding: 0 96px 0 52px;
+}
+
+.product {
+    border-bottom: 1px solid #f3f3f5;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.first-section {
+    border-right: 1px solid #f3f3f5;
+    padding: 0 65px 0 5px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.subtitle {
+    color: #7d7d7d;
+    font-size: 10pt;
+    padding-top: 20px;
+    padding-bottom: 45px;
+}
+
+.image {
+    box-shadow: 0 13px 22px 3px rgba(0,0,0,0.25);
+    border-radius: 15px;
+}
+
+.image:hover {
+    opacity: 0.8;
+}
+
+.button-quantity {
+    width: 30px;
+    height: 30px;
+    font-size: 12pt;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    color: #4e4e4e;
+}
+
+.button-quantity:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.quantity {
+    color: #7d7d7d;
+}
+
+.worth {
+    font-weight: bold;
+}
+
+select {
+    width: 242px;
+    height: 51px;
+}
+
+.select-sku> select {
+    color: #7d7d7d;
+    font-size: 8pt;
+    text-transform: uppercase;
+}
+
+.delete-row {
+    padding-bottom: 30px;
+}
+
+.delete {
+    background: #fff url("../images/bucket.png") no-repeat;
+    width: 25px;
+    height: 27px;
+    border: 1px solid #fff;
+}
+
+.delete:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.total {
+    font-size: 20pt;
+    padding-right: 100px;
+    padding-top: 46px;
+}
