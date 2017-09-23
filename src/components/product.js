@@ -91,23 +91,16 @@ const PRODUCTS = [
 class ProductList extends Component {
     state = {
         items: PRODUCTS,
-        total: PRODUCTS.map((item) => item.sku[0].price * item.sku[0].min).reduce((a, b) => a + b),
-
+        total: PRODUCTS.map((item) => item.sku[0].price * item.sku[0].min).reduce((a, b) => a + b)
     };
 
-    handleChangeProduct = (updatedItem, index) => {
-        console.log(updatedItem, index);
-        let total = 0;
 
+    handleChangeProduct = (updatedItem, index) => {
         let items = this.state.items;
         items[index] = updatedItem;
-        items.forEach((item) => {
-            let sku = item.hasOwnProperty('activeSku') ? item.activeSku : item.sku[0];
-            total += sku.price * (item.quantity ? item.quantity : sku.min);
-        });
         this.setState({
             items,
-            total
+            total: this.countTotal(items)
         });
     };
 
@@ -116,9 +109,21 @@ class ProductList extends Component {
         items.splice(index, 1);
 
         this.setState({
-            items
-        })
+            items,
+            total: this.countTotal(items)
+        });
     };
+
+    countTotal = (items) => {
+        let total = 0;
+        items.forEach((item) => {
+            let sku = item.hasOwnProperty('activeSku') ? item.activeSku : item.sku[0];
+            total += sku.price * (item.quantity ? item.quantity : sku.min);
+        });
+        return total;
+    }
+
+
 
     render() {
         const {items} = this.state;
@@ -129,7 +134,7 @@ class ProductList extends Component {
                         items.map((el, index) => {
                             return (
                                 <Product
-                                    key={index}
+                                    key={el.id}
                                     index={index}
                                     item={el}
                                     onDelete={this.handleDeleteItem}
@@ -152,7 +157,7 @@ class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeSku: props.item.sku[0]
+            activeSku: props.activeSku || props.item.sku[0]
         };
     }
 
@@ -167,7 +172,7 @@ class Product extends Component {
         });
     }
 
-    handleChangeProduct = (quantity) => {
+    handleChangeProductQuantity = (quantity) => {
         let updatedItem = {
             ...this.props.item,
             quantity,
@@ -197,7 +202,6 @@ class Product extends Component {
                                         </Row>
                                         <Row className="select-sku">
                                             <select id="sku" value={this.state.skuLabel} onChange={this.handleChange} >
-                                            <label for="sku" />
                                                 {this.props.item.sku.map((sku, index) => {
                                                     return (<option key={index} value={sku.label}>{sku.label}</option>)
                                                 })}
@@ -213,7 +217,7 @@ class Product extends Component {
                                 <Row center="xs">
                                     <Col xs={12}>
                                         <EstimateProduct activeSku={this.state.activeSku}
-                                                         onChange={this.handleChangeProduct}/>
+                                                         onChange={this.handleChangeProductQuantity}/>
                                     </Col>
                                 </Row>
                             </Col>
@@ -273,7 +277,7 @@ class EstimateProduct extends Component {
                         </button>
                     </Row>
                 </Col>
-                <Col center="xs" xs={1} className="quantity">
+                <Col xs={1} className="quantity">
                     {quantity}
                 </Col>
                 <Col xs={3}>

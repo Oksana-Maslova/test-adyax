@@ -50,6 +50,8 @@
 
 .quantity {
     color: #7d7d7d;
+    text-align: center;
+    padding: 0 0;
 }
 
 .worth {
